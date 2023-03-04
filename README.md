@@ -94,7 +94,7 @@ Check the HPA status
 kubectl get hpa shiftswebapp -n shiftmanagement
 ```
 Set the HPA for users webapp
-'''
+```
 kubectl autoscale deployment userswebapp --cpu-percent=70 --min=1 --max=3 -n usermanagement
 ```
 Check the HPA status
