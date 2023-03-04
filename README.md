@@ -183,16 +183,21 @@ The output is
 ```
 clusterrole.rbac.authorization.k8s.io/developers-k8s-cluster-role created
 ```
-Create a new Role binding in Kubernetes. The yaml file is stored in DeveloperClusterRole.yaml file. 
+Create a new Role binding in Kubernetes. The yaml file is stored in DeveloperClusterRole.yaml file.
+  
 ```
-kubectl create -f DeveloperRoleBinding.yaml
+  kubectl create -f DeveloperRoleBinding.yaml
 ```
+  
 The output is
+  
 ```
 clusterrolebinding.rbac.authorization.k8s.io/developers-k8s-role-binding created
 ```
-### Step 2 Create an IAM Policy and Group in AWS
+
+  ### Step 2 Create an IAM Policy and Group in AWS
   Create policy
+  
 <img width="452" alt="image" src="https://user-images.githubusercontent.com/111366682/222906580-38bc0b4f-33a2-4e2b-b881-b809d0d44e88.png">
 
 
