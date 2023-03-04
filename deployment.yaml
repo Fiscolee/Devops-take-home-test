@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: userswebapp
+  labels:
+    app: userswebapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: userswebapp
+  template:
+    metadata:
+      labels:
+        app: userswebapp
+    spec:
+      containers:
+        - name: userswebapp
+          image: docker.io/ashafqat/usermanagement:v1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /usermanagement/
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /usermanagement/
+              port: http
+          resources:
+            requests:
+              cpu: 100m
+              memory: 512Mi
+            limits:
+              cpu: 700m
+              memory: 636Mi
+          volumeMounts:
+          - mountPath: /etc/config
+            name: config
+            readOnly: true
+      volumes:
+        - name: config
+          configMap:
+            name: userswebappcm
+            items:
+            - key: "application.properties"
+              path: "application.properties"

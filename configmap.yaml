@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: userswebappcm
+data:
+  application.properties: |
+    username=postgres
+/Users/oluwafisayomojeed/Downloads/aws/DeveloperClusterRole.yaml
+/Users/oluwafisayomojeed/Downloads/aws/DeveloperRoleBinding.yaml
