@@ -98,14 +98,17 @@ Set the HPA for users webapp
 kubectl autoscale deployment userswebapp --cpu-percent=70 --min=1 --max=3 -n usermanagement
 ```
 Check the HPA status
+
 ```
 kubectl get hpa -n usermanagement
 ```
 The output is:
+
 ```
 NAME          REFERENCE                TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
 userswebapp   Deployment/userswebapp   1%/70%   1         3        0          14s
 ```
+
 The auto scaler configuration is based on CPU usage. If the CPU usage is more than 70%, it will start a new instance.
 To test the autoscaling where you can generate load on the service, run
 ```
