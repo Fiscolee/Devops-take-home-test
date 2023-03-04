@@ -260,7 +260,7 @@ Run any k8s command and you can see developer can run basic commands
 <img width="452" alt="image" src="https://user-images.githubusercontent.com/111366682/222907544-301b3971-15c5-4a94-a481-a40db59984da.png">
 
 Try to access any cluster resource. You will see developer in not allowed to do so
-``
+```
 kubectl get nodes
 ```
 The output for me 
