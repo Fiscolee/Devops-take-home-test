@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shiftswebapp
+  labels:
+    app: shiftswebapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shiftswebapp
+  template:
+    metadata:
+      labels:
+        app: shiftswebapp
+    spec:
+      containers:
+        - name: shiftswebapp
+          image: docker.io/ashafqat/shiftmanagement:v1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /shiftmanagement/
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /shiftmanagement/
+              port: http
+          resources:
+            requests:
+              cpu: 100m
+              memory: 512Mi
+            limits:
+              cpu: 700m
+              memory: 636Mi
+          volumeMounts:
+          - mountPath: /etc/config
+            name: config
+            readOnly: true
+      volumes:
+        - name: config
+          configMap:
+            name: shiftswebappcm
+            items:
+            - key: "application.properties"
+              path: "application.properties"

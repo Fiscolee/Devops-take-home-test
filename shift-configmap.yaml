@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: shiftswebappcm
+data:
+  application.properties: |
+    username=postgres
