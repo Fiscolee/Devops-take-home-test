@@ -66,12 +66,13 @@ usermanagement    userswebapp    LoadBalancer   10.100.105.129   acc258795165a49
 ### Accessing the applications
 Once the applications were deployed I was able to access them using my browser
 
-http://a399f5153a514471bafcd4de28b6ff50-1163751732.us-east-2.elb.amazonaws.com:8080/usermanagement/allusers![image](https://user-images.githubusercontent.com/111366682/222902243-125de8dc-65d5-47ef-a259-f7d033de362e.png)
-http://a843ab4143e824286a59a6c519c8997c-911445182.us-east-2.elb.amazonaws.com:8080/shiftmanagement/allshifts/ ![image](https://user-images.githubusercontent.com/111366682/222902261-de849beb-c5cc-48ee-b1b8-81edae897534.png)
+http://a399f5153a514471bafcd4de28b6ff50-1163751732.us-east-2.elb.amazonaws.com:8080/usermanagement/allusers
+http://a843ab4143e824286a59a6c519c8997c-911445182.us-east-2.elb.amazonaws.com:8080/shiftmanagement/allshifts/ 
 
 ## Autoscale the Service
 
 I deployed a metric server with the following command
+
 ```
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 ```
