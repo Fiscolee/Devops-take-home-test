@@ -269,7 +269,8 @@ The output for me
 
 ## Deploy in multiple environments, staging and production 
 There could be multiple approached used to deploy applications in multiple environments. The best approach would be to use helm charts.
-(https://www.linkedin.com/pulse/manage-multiple-kubernetes-environments-helm-rohan-shetty/?trk=pulse-article_more-articles_related-content-card)
+
+https://www.linkedin.com/pulse/manage-multiple-kubernetes-environments-helm-rohan-shetty/?trk=pulse-article_more-articles_related-content-card
 
 In this case you create different helm “values.yaml” files for different environments. The values.yaml file is used to store configurable parameters which differ in different environments. For example, staging and production can have their own databases with their own IP addresses and credentials. These values are stored in values-dev.yaml and values-qa.yaml files. 
 
@@ -278,8 +279,13 @@ In this case you create different helm “values.yaml” files for different env
 The next step is to configure a CI/CD pipeline using Jenkins or any other CI/CD tool which use these different configuration files to deploy applications in different environments.
 
 ## Autoscale based on network metrics
-By default Kubernetes provides built-in support for autoscaling deployments based on resource utilization. As we discussed earlier, you can auto scale your deployments by CPU or Memory with just a few lines of YAML. CPU and memory are two of the most common metrics to use for autoscaling. 
+By default Kubernetes provides built-in support for autoscaling deployments based on resource utilization. We can auto scale deployments by CPU or Memory with just a few lines of YAML. CPU and memory are two of the most common metrics to use for autoscaling. 
 In order to auto scale deployments based on custom metrics, we have to provide Kubernetes with the ability to fetch those custom metrics from within the cluster.
-This can be achieved using custom metrics collectors such as Prometheus. We need to install Prometheus cluster on the server to collect additional metrics. Once the Prometheus starts collecting additional metrics, we can setup a horizontal auto scaler on these custom metrics.
+This can be achieved using custom metrics collectors such as Prometheus. We need to install Prometheus cluster on the server to collect additional metrics. Once the Prometheus starts collecting additional metrics, we can setup a horizontal auto scaler on the custom metrics in the networkrequesthpa.yaml file
+
+The link below explains this process in detail.
+https://towardsdatascience.com/kubernetes-hpa-with-custom-metrics-from-prometheus-9ffc201991e 
+
+
 
 
