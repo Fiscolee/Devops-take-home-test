@@ -5,5 +5,4 @@ metadata:
 data:
   application.properties: |
     username=postgres
-/Users/oluwafisayomojeed/Downloads/aws/DeveloperClusterRole.yaml
-/Users/oluwafisayomojeed/Downloads/aws/DeveloperRoleBinding.yaml
+
