@@ -1,4 +1,18 @@
 # Kubernetes-Challenge
+
+Find the list of activities performed to complete this assignment.
+1.	Create a new AWS EKS Cluster. 
+2.	Create a new VM with Database (postgresql)
+3.	Create two new tables users and shifts.
+4.	Create Docker Images and upload them in Docker Hub
+5.	Create two deployments and deploy them on Kubernetes cluster.
+6.	Access these applications from outside of cluster.
+7.	Horizontal pod autoscaling and installation of Metrics Server
+8.	Rolling deployment and rollback
+9.	Developer Access in Kubernetes Cluster
+10.	Deploy in multiple environments, staging and production.
+11.	Auto scale based on network metrics.
+
 ## Set up EKS Cluster in AWS
 I set up an AWS EKS Cluster
 
