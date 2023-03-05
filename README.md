@@ -2,8 +2,23 @@
 ## Set up EKS Cluster in AWS
 I set up an AWS EKS Cluster
 
+Once the cluster has been created, update the aws-auth config map with admin user details as a system:masters using the command
+```
+kubectl edit configmap aws-auth -n kube system
+```
+  
 Create  a new VM with Database (postgresSQL)- This assignment requires apis to return users and shifts details from the database, I created couple of tables. I installed a postgressql in a linux server by using the method stated in the link below:
 [https://devopscube.com/install-configure-postgresql-amazon-linux/]
+
+I created a new VM in the same region as my EKS cluster
+
+In the ec2 security group of the Amazon Linux ec2 server, allow incoming traffic on port 5432, which is the default port used by PostgreSQL.
+
+## Create two new tables: users and shifts
+After connecting to the cluster, I used a PGAdmin tool to create tables
+
+<img width="397" alt="image" src="https://user-images.githubusercontent.com/111366682/222990774-99ce88ac-9595-41e8-b22a-55c09fec7f1d.png">
+
 
 ## Create two deployments and deploy them on Kubernetes Cluster
 To deploy the application in Kubernetes I created yaml manifests for users and shifts.
@@ -17,13 +32,22 @@ kubectl create namespace usermanagement
 
 ### Deploy Configmap
 ```
-kubectl create -f configmap.yaml -n usermanagement
+kubectl create -f users-configmap.yaml -n usermanagement
 ```
 
 ### Deploy User Management application
 ```
-kubectl create -f deployment.yaml -n usermanagement
+kubectl create -f users-deployment.yaml -n usermanagement
 ```
+### Deploy a Load Balancer to access it from browser
+```
+kubectl create -f users-service.yaml -n usermanagement
+```
+Check application pods
+```
+kubectl get pods -n usermanagement
+```
+
 I ran the similar commands for the shift application
 
 ```
