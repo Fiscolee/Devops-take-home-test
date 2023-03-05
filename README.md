@@ -61,7 +61,7 @@ I checked application pods by running the following command
 ```
 kubectl get pods -A
 ```
-Below image shows the feedback from my EKS cluster
+Below image shows the output
 ```
 NAMESPACE         NAME                           READY   STATUS    RESTARTS   AGE
 kube-system       aws-node-85c7r                 1/1     Running   0          44m
@@ -79,7 +79,7 @@ I checked the services by running
 ```
 kubectl get services -A
 ```
-Below image shows feedback 
+Below image shows output 
 ```
 NAMESPACE         NAME           TYPE           CLUSTER-IP       EXTERNAL-IP                                                               PORT(S)          AGE
 default           kubernetes     ClusterIP      10.100.0.1       <none>                                                                    443/TCP          3h7m
